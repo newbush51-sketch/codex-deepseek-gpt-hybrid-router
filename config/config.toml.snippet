@@ -1,0 +1,42 @@
+
+model = "deepseek-v4-flash"
+model_provider = "hybrid_local"
+model_catalog_json = "C:\\Users\\YOUR_NAME\\.codex\\deepseek-proxy\\hybrid-models.json"
+model_reasoning_effort = "medium"
+
+[model_providers.hybrid_local]
+name = "OpenAI + DeepSeek via local hybrid router"
+base_url = "http://127.0.0.1:4140/v1"
+wire_api = "responses"
+requires_openai_auth = true
+request_max_retries = 8
+stream_max_retries = 8
+stream_idle_timeout_ms = 600000
+supports_websockets = false
+supports_standalone_web_search = false
+
+[model_providers.deepseek_local]
+name = "DeepSeek via local LiteLLM"
+base_url = "http://127.0.0.1:4141/v1"
+wire_api = "responses"
+request_max_retries = 8
+stream_max_retries = 8
+stream_idle_timeout_ms = 600000
+supports_websockets = false
+supports_standalone_web_search = false
+
+[profiles.deepseek-flash]
+model = "deepseek-v4-flash"
+model_provider = "deepseek_local"
+model_catalog_json = "C:\\Users\\YOUR_NAME\\.codex\\deepseek-proxy\\models.json"
+model_reasoning_effort = "xhigh"
+web_search = "disabled"
+
+[profiles.deepseek-pro]
+model = "deepseek-v4-pro"
+model_provider = "deepseek_local"
+model_catalog_json = "C:\\Users\\YOUR_NAME\\.codex\\deepseek-proxy\\models.json"
+model_reasoning_effort = "xhigh"
+web_search = "disabled"
+
+
