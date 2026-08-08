@@ -1,0 +1,13 @@
+
+.venv/
+__pycache__/
+*.pyc
+*.log
+*.old
+.pytest_cache/
+stack-guard-heartbeat.txt
+hybrid-models.json
+models_cache.json
+.env
+
+
